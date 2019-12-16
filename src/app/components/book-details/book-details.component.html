@@ -1,0 +1,7 @@
+<h2>{{book.title}}</h2>
+<div class="book-details">
+  <p>{{book.description}}</p>
+  <img class="details-image" [src]="book.imageUrl" alt="{{book.title}}"><br>
+</div>
+<button (click)="orderBook()">Order</button>
+<button (click)="back.emit()">Back</button>

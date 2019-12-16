@@ -1,0 +1,26 @@
+.search-button {
+  margin-left: 10px;
+  background-color: #44c767;
+  border-radius:28px;
+  border:1px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-size:17px;
+  font-family: Verdana, sans-serif;
+  padding:10px 40px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #2f6627;
+}
+.search-button:hover {
+  background-color:#5cbf2a;
+}
+.search-button:active {
+  position:relative;
+  top:1px;
+}
+
+.error-text {
+  color: red;
+}
+

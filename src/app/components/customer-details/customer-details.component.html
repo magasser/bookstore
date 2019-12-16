@@ -1,0 +1,55 @@
+<form (ngSubmit)="saveCustomer()" #customerForm="ngForm">
+  <h3>Your information</h3>
+  <label for="firstName">First name</label>
+  <input id="firstName" type="text" name="firstName" #firstName="ngModel" [(ngModel)]="customer.firstName" pattern="[a-zA-Z]+" required>
+  <div *ngIf="firstName.touched && firstName.errors">
+    <p *ngIf="firstName.errors.required">required value</p>
+    <p *ngIf="firstName.errors.pattern">invalid first name</p>
+  </div>
+  <br>
+  <label for="lastName">Last name</label>
+  <input id="lastName" type="text" name="lastName" #lastName="ngModel" [(ngModel)]="customer.lastName" pattern="[a-zA-Z]+" required>
+  <div *ngIf="lastName.touched && lastName.errors">
+    <p *ngIf="lastName.errors.required">required value</p>
+    <p *ngIf="lastName.errors.pattern">invalid last name</p>
+  </div>
+  <br>
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" #email="ngModel" [(ngModel)]="customer.email" pattern="[a-zA-Z0-9.]+@[a-zA-Z0-9.]+" required>
+  <div *ngIf="email.touched && email.errors">
+    <p *ngIf="email.errors.required">required value</p>
+    <p *ngIf="email.errors.pattern">invalid email</p>
+  </div>
+  <br>
+  <h3>Credit Card</h3>
+  <label for="type">Type</label>
+  <select id="type" name="type" #type="ngModel" [(ngModel)]="customer.creditCard.type" required>
+    <option *ngFor="let type of creditCardTypes" [value]="type">{{type}}</option>
+  </select>
+  <div *ngIf="type.touched && email.errors">
+    <p *ngIf="type.errors.required">required value</p>
+  </div>
+  <br>
+  <label for="number">Number</label>
+  <input id="number" type="text" name="number" #number="ngModel" [(ngModel)]="customer.creditCard.number" pattern="\d{4} \d{4} \d{4} \d{4}" required>
+  <div *ngIf="number.touched && number.errors">
+    <p *ngIf="number.errors.required">required value</p>
+    <p *ngIf="number.errors.pattern">invalid type</p>
+  </div>
+  <br>
+  <label for="exMonth">Expiration Month</label>
+  <input id="exMonth" type="number" name="exMonth" #exMonth="ngModel" [(ngModel)]="customer.creditCard.expirationMonth" min="1" max="12" required>
+  <div *ngIf="exMonth.touched && exMonth.errors">
+    <p *ngIf="exMonth.errors.required">required value</p>
+    <p *ngIf="exMonth.errors.pattern">invalid month</p>
+  </div>
+  <br>
+  <label for="exYear">Expiration Year</label>
+  <input id="exYear" type="number" name="exYear" #exYear="ngModel" [(ngModel)]="customer.creditCard.expirationYear" min="2019" required>
+  <div *ngIf="exYear.touched && exYear.errors">
+    <p *ngIf="exYear.errors.required">required value</p>
+    <p *ngIf="exYear.errors.pattern">invalid year</p>
+  </div>
+  <br>
+  <button type="submit" [disabled]="!customerForm.form.valid">Save</button>
+</form>

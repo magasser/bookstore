@@ -1,0 +1,18 @@
+<table class="books-table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Authors</th>
+    <th>ISBN</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books" (click)="selectBook.emit(book)" class="book-data">
+    <td>{{book.title}}</td>
+    <td>{{book.authors}}</td>
+    <td>{{book.isbn}}</td>
+    <td>{{book.price | currency: 'CHF'}}</td>
+  </tr>
+  </tbody>
+</table>

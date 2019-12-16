@@ -1,0 +1,16 @@
+<section *ngIf="selectedBook" class="book">
+  <app-book-details [book]="selectedBook" (back)="selectedBook = null"></app-book-details>
+</section>
+<section *ngIf="!selectedBook">
+  <input type="text" name="keywords" [(ngModel)]="keywords">
+  <button class="search-button" (click)="searchBooks()">Search</button>
+  <p *ngIf="errorMessage" class="error-text">{{errorMessage}}</p>
+  <section *ngIf="searchResults.length > 0" class="search-results">
+    <h2>Search Results</h2>
+    <app-books-table [books]="searchResults" (selectBook)="selectBook($event)"></app-books-table>
+  </section>
+  <section *ngIf="searchResults.length === 0" class="books">
+    <h2>Books</h2>
+    <app-books-table [books]="books" (selectBook)="selectBook($event)"></app-books-table>
+  </section>
+</section>

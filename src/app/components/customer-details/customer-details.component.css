@@ -1,0 +1,17 @@
+.ng-touched.ng-invalid:not(form) {
+  border: 2px solid red;
+}
+
+div {
+  display: inline-block;
+}
+
+p {
+  margin: 0 0 0 10px;
+  color: red;
+}
+
+label {
+  color: green;
+  margin-right: 5px;
+}
